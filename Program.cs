@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static CalculatorKlassen.Operation;
 using static CalculatorKlassen.Menu;
+using static CalculatorKlassen.Functions;
 
 
 
@@ -16,11 +17,18 @@ namespace Calculator
     {
         public static void Main(string[] args)
         {
+            //IsDone is a bool that is set to false. It is used to determine if the program should continue running or not.
+            //The program will continue running until the user enters 5, which is the exit option.
             bool isDone = false;
             
             
             PrintMenu (false);
             { 
+                //This is the menu that is displayed to the user. It is displayed every time the user has completed a calculation.
+                //The menu is displayed until the user enters 5, which is the exit option.
+                //The menu is also displayed if the user enters an invalid choice.
+                //The menu is displayed by calling the PrintMenu method from the Menu class.
+                
                 var Result = ReadNumber("Please enter your choice:");
 
                 
@@ -61,67 +69,9 @@ namespace Calculator
 
 
        
-        public static int ReadNumber(string prompt)
-        {
-            bool isValid;
-            int Result;
-            
-
-            do
-            {
-                Console.WriteLine(prompt);
-                string userInput = Console.ReadLine()!;
-                isValid = int.TryParse(userInput, out Result);
-
-
-                if (!isValid)
-                {
-                    //Display for the stupid
-                    Console.WriteLine("Please enter a Number!");
-                    Console.ReadKey(true);
-                    continue;
-                    //Do stuff while it is not valid
-                }  //Negated is valid
-
-
-            }
-            while (!isValid);
-
-            return Result;
-
-
-        }
-
-
-        public static int ReadNumberExludingZero(string prompt)
-        {
-            int number;
-            
-            do
-            {
-
-                number = ReadNumber(prompt);
-
-
-                if (number == 0)
-                {
-                    Console.WriteLine("Cannot divide by zero");
-                    Console.ReadKey(true);
-
-                }
-            } 
-            while (number == 0);
-
-            return number;
-        }
-
        
-
-               
-             
-            
-      
-       
+                   
             
     }   
 }
+
