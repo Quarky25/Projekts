@@ -77,7 +77,7 @@ namespace Calculator
                 if (!isValid)
                 {
                     //Display for the stupid
-                    Console.WriteLine("Please enter a fucking Number, you Dipshit!.");
+                    Console.WriteLine("Please enter a Number!");
                     Console.ReadKey(true);
                     continue;
                     //Do stuff while it is not valid
